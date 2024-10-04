@@ -1,0 +1,13 @@
+{
+    "name": "vue3-vite-federation",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "",
+    "license": "ISC",
+    "workspaces": [
+        "facade",
+        "library"
+    ]
+}
