@@ -13,8 +13,7 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "dayjs": "latest",
-        "@test/utils": "file:src/utils"
+        "dayjs": "latest"
     },
     "author": "",
     "license": "ISC"

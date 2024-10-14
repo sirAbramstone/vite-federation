@@ -3,16 +3,14 @@
         <h3>FACADE</h3>
         <UiButton></UiButton>
         <UiTile></UiTile>
-        <PackageComponent></PackageComponent>
     </div>
 </template>
 <script>
-import { Component as PackageComponent } from 'test/components';
 import UiButton from './components/Button.vue';
 import UiTile from './components/Tile.vue';
 
 export default {
-    components: { UiButton, UiTile, PackageComponent },
+    components: { UiButton, UiTile },
 };
 </script>
 <style>

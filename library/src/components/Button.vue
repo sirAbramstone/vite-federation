@@ -1,7 +1,7 @@
 <template>
     <div>
         <button class="btn btn-primary" @click="increment">counter: {{ count }}</button>
-        {{ now }} {{ state }}
+        <pre>{{ state }}</pre>
         <PackageComponent></PackageComponent>
     </div>
 </template>
@@ -9,7 +9,6 @@
 import { ref } from 'vue';
 import { foo, bar } from 'test';
 import { now, getState } from 'test/utils';
-import { getState as getStatePseudoPackage } from '@test/utils';
 import { Component as PackageComponent } from 'test/components';
 
 export default {
@@ -17,7 +16,7 @@ export default {
     setup() {
         const count = ref(0);
         const increment = () => count.value++;
-        return { count, increment, now: now(), state: [getStatePseudoPackage(), getState()], foo, bar };
+        return { count, increment, now: now(), state: getState(), foo, bar };
     },
 };
 </script>
