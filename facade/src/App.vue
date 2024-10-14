@@ -67,8 +67,10 @@
 import { reactive } from 'vue';
 import { reverse } from 'lodash';
 import { fetchLibrary } from './federation';
+import { foo, bar } from 'test';
+import { getState } from 'test/utils';
 
-reverse([1, 2]);
+console.log(reverse([foo, bar, getState()]));
 
 export default {
     setup() {

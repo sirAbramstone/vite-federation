@@ -8,6 +8,7 @@
     "license": "ISC",
     "workspaces": [
         "facade",
-        "library"
+        "library",
+        "test"
     ]
 }
