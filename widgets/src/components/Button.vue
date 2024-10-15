@@ -7,9 +7,9 @@
 </template>
 <script>
 import { ref } from 'vue';
-import { foo, bar } from 'test';
-import { now, getState } from 'test/utils';
-import { Component as PackageComponent } from 'test/components';
+import { foo, bar } from 'wcore';
+import { now, getState } from 'wcore/utils';
+import { Component as PackageComponent } from 'wcore/components';
 
 export default {
     components: { PackageComponent },

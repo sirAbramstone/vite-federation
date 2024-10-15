@@ -1,5 +1,6 @@
 // ts-check
-import { __federation_method_setRemote, __federation_method_getRemote } from '__federation__';
+import { registerRemotes } from '@module-federation/runtime';
+import { loadRemote } from '@module-federation/runtime';
 import { defineAsyncComponent, markRaw } from 'vue';
 import ErrorState from './ErrorState.vue';
 import LoadingState from './LoadingState.vue';
@@ -132,22 +133,25 @@ const createLibraryRecord = ({ name: libraryName, url, library }) => {
  * @return {Promise<RemoteLibraryRecord>}
  */
 export const fetchLibrary = async ({ name = 'library', url }) => {
-    const component = './exports';
-    const urlPath = 'assets/remoteEntry.js';
+    const component = 'exports';
+    const urlPath = 'remoteEntry.js';
     const urlFixed = url.includes(urlPath) ? url : [url, urlPath].join('');
 
     if (remoteLibraryRegistry.has(name)) {
         return remoteLibraryRegistry.get(name);
     }
-    __federation_method_setRemote(name, {
-        url: () => Promise.resolve(urlFixed), // http://localhost/assets/remoteEntry.js
-        format: 'esm',
-        from: 'vite',
-    });
+
+    registerRemotes([
+        {
+            name,
+            entry: urlFixed,
+            type: 'module',
+        },
+    ]);
 
     const load = async () => {
         /** @type {RemoteLibrary} */
-        const library = await __federation_method_getRemote(name, component); // esm-module пакета виджетов
+        const library = await loadRemote(`${name}/${component}`); // esm-module пакета виджетов
         const record = createLibraryRecord({ name, url, library });
         return record;
     };

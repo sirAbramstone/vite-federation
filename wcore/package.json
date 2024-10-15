@@ -1,5 +1,5 @@
 {
-    "name": "test",
+    "name": "wcore",
     "version": "1.0.0",
     "description": "",
     "type": "module",
@@ -13,7 +13,8 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "dayjs": "latest"
+        "dayjs": "latest",
+        "vue": "^3.4.29"
     },
     "author": "",
     "license": "ISC"

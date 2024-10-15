@@ -2,13 +2,19 @@
     "name": "vue3-vite-federation",
     "version": "1.0.0",
     "description": "",
+    "type": "module",
     "main": "index.js",
-    "scripts": {},
+    "scripts": {
+        "i": "npm i -ws && node fix-deps.js",
+        "ifix": "node fix-deps.js",
+        "dev:widgets": "npm run build -w widgets && npm run preview -w widgets",
+        "dev:facade": "npm run dev -w facade"
+    },
     "author": "",
     "license": "ISC",
     "workspaces": [
         "facade",
-        "library",
-        "test"
+        "widgets",
+        "wcore"
     ]
 }

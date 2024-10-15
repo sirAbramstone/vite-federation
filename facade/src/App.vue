@@ -2,6 +2,8 @@
     <div id="#app">
         <div>
             <h2>Facade app</h2>
+            <div class="text-xsmall">wcore stateful module:</div>
+            <pre class="p">{{ mfState }}</pre>
             <form class="inline-gaps mar-bot-l1" @submit.prevent="loadLibrary">
                 <input
                     class="input input-small mar-right-2"
@@ -67,10 +69,8 @@
 import { reactive } from 'vue';
 import { reverse } from 'lodash';
 import { fetchLibrary } from './federation';
-import { foo, bar } from 'test';
-import { getState } from 'test/utils';
-
-console.log(reverse([foo, bar, getState()]));
+import { foo, bar } from 'wcore';
+import { getState } from 'wcore/utils';
 
 export default {
     setup() {
@@ -115,7 +115,10 @@ export default {
             preview.customElementHtml = `<${ceName}></${ceName}>`;
         };
 
-        return { state, loadLibrary, resolve, resolveCustomElement, log };
+        // just need to use lodash
+        reverse([foo, bar]);
+
+        return { state, mfState: getState(), loadLibrary, resolve, resolveCustomElement, log };
     },
 };
 </script>

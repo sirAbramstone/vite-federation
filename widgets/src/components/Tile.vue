@@ -13,10 +13,10 @@
 <script>
 import { ref, defineAsyncComponent } from 'vue';
 import { reverse } from 'lodash';
-import { foo, bar } from 'test';
-import { getState } from 'test/utils';
+import { foo, bar } from 'wcore';
+import { getState } from 'wcore/utils';
 
-const PackageComponentAsync = defineAsyncComponent(() => import('test/components').then((m) => m.Component));
+const PackageComponentAsync = defineAsyncComponent(() => import('wcore/components').then((m) => m.Component));
 
 export default {
     components: { PackageComponentAsync },

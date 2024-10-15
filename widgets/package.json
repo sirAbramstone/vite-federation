@@ -1,6 +1,5 @@
 {
-    "name": "library",
-    "private": true,
+    "name": "widgets",
     "version": "0.0.0",
     "type": "module",
     "scripts": {
@@ -10,7 +9,7 @@
     },
     "dependencies": {
         "lodash": "^4.17.21",
-        "test": "^1.0.0",
+        "wcore": "file:../wcore",
         "vue": "^3.4.29"
     },
     "devDependencies": {

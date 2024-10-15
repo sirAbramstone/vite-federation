@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { useFederation } from '../use-federation';
+import { useViteFederation } from '../use-vite-federation';
 import packageJson from './package.json';
 
 // https://vitejs.dev/config/
@@ -14,9 +14,9 @@ export default defineConfig({
                 },
             },
         }),
-        useFederation({ isLibrary: false, packageJson }),
+        useViteFederation({ isLibrary: false, packageJson }),
     ],
     build: {
-        target: 'esnext', //browsers can handle the latest ES features
+        target: 'esnext',
     },
 });
