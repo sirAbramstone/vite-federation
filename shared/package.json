@@ -1,5 +1,5 @@
 {
-    "name": "wcore",
+    "name": "shared",
     "version": "1.0.0",
     "description": "",
     "type": "module",
@@ -7,13 +7,15 @@
         ".": "./src/index.js",
         "./components": "./src/components/index.js",
         "./utils": "./src/utils/index.js",
+        "./utils.xxx": "./src/utils/index.js",
+        "./circ": "./src/circ/index.js",
+        "./circ.xxx": "./src/circ/index.js",
         "./package.json": "./package.json"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "dayjs": "latest",
         "vue": "^3.4.29"
     },
     "author": "",

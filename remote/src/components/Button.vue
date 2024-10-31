@@ -7,16 +7,15 @@
 </template>
 <script>
 import { ref } from 'vue';
-import { foo, bar } from 'wcore';
-import { now, getState } from 'wcore/utils';
-import { Component as PackageComponent } from 'wcore/components';
+import { now, getState } from 'shared/utils';
+import { Component as PackageComponent } from 'shared/components';
 
 export default {
     components: { PackageComponent },
     setup() {
         const count = ref(0);
         const increment = () => count.value++;
-        return { count, increment, now: now(), state: getState(), foo, bar };
+        return { count, increment, now: now(), state: getState() };
     },
 };
 </script>

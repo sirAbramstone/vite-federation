@@ -5,15 +5,15 @@ const require = createRequire(import.meta.url);
 
 // https://github.com/module-federation/vite/pull/148/files#diff-8a62656f3d9333b1abd6ce377cbef6e32ceb6f09a9c264617b4df417d21fcaf9
 /**
- * @param {{ isLibrary:boolean, packageJson:object, facadeOptions:object, libraryOptions:object }} options
+ * @param {{ isLibrary:boolean, packageJson:object, hostOptions:object, remoteOptions:object }} options
  * @return {import('vite').Plugin}
  */
 export const useViteFederation = ({
     isLibrary,
     packageJson = {},
-    facadeOptions = { name: 'facade', packageExcludes: ['vue'] },
-    libraryOptions = {
-        name: 'library',
+    hostOptions = { name: 'host', packageExcludes: ['vue'] },
+    remoteOptions = {
+        name: 'remote',
         filename: 'remoteEntry.js',
         exposesName: './exports',
         exposesPath: './resolveEntry.js',
@@ -27,7 +27,7 @@ export const useViteFederation = ({
         const versionFixed = version.startsWith('file:') ? '^0.0.0' : version;
         sharedDeps.push([name, versionFixed]);
         // dont analyze these
-        if (facadeOptions.packageExcludes.includes(name)) {
+        if (hostOptions.packageExcludes.includes(name)) {
             return;
         }
         const sharedPackagePaths = [
@@ -61,9 +61,9 @@ export const useViteFederation = ({
     console.log(sharedDeps);
     console.log('--------');
 
-    // lib mode
+    // remote mode
     if (isLibrary) {
-        const { name, filename, exposesName, exposesPath } = libraryOptions;
+        const { name, filename, exposesName, exposesPath } = remoteOptions;
         return federation({
             name,
             filename,
@@ -74,9 +74,9 @@ export const useViteFederation = ({
         });
     }
 
-    // facade mode
+    // host mode
     {
-        const { name } = facadeOptions;
+        const { name } = hostOptions;
         return federation({
             name,
             manifest: true,

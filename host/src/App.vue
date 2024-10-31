@@ -67,10 +67,8 @@
 </template>
 <script>
 import { reactive } from 'vue';
-import { reverse } from 'lodash';
 import { fetchLibrary } from './federation';
-import { foo, bar } from 'wcore';
-import { getState } from 'wcore/utils';
+import { getState } from 'shared/utils';
 
 export default {
     setup() {
@@ -114,9 +112,6 @@ export default {
             const ceName = await libraryRecord.resolveCustomElement({ type });
             preview.customElementHtml = `<${ceName}></${ceName}>`;
         };
-
-        // just need to use lodash
-        reverse([foo, bar]);
 
         return { state, mfState: getState(), loadLibrary, resolve, resolveCustomElement, log };
     },

@@ -7,14 +7,14 @@
     "scripts": {
         "i": "npm i -ws && node fix-deps.js",
         "ifix": "node fix-deps.js",
-        "dev:widgets": "npm run build -w widgets && npm run preview -w widgets",
-        "dev:facade": "npm run dev -w facade"
+        "dev:remote": "npm run build -w remote && npm run preview -w remote",
+        "dev:host": "npm run dev -w host"
     },
     "author": "",
     "license": "ISC",
     "workspaces": [
-        "facade",
-        "widgets",
-        "wcore"
+        "host",
+        "remote",
+        "shared"
     ]
 }

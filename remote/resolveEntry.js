@@ -24,4 +24,4 @@ export const resolveCustomElement = async ({ type }) => {
 /**
  * @return {string[]}
  */
-export const getTypes = () => ['Button', 'Tile'];
+export const getTypes = () => ['Button'];
