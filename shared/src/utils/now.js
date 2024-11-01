@@ -1,4 +1,4 @@
-import { foo } from 'shared/circ';
+import { foo } from 'shared/circ.xxx';
 
 export const now = () => {
     foo();

@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, cpSync, rmSync } from 'fs';
 
 // @NOTE this fix is only required coz we use 'file:' deps which breaks vite
 const pwd = process.cwd();
-const packages = ['facade', 'widgets'];
+const packages = ['host', 'remote'];
 
 packages.forEach((name) => {
     const path = `${pwd}/${name}/package.json`;
